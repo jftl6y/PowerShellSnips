@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory=$true)]
     $orgName
 )
-$repos = ConvertFrom-Json (gh repo list $orgName -L 20 --json name)
+$repos = ConvertFrom-Json (gh repo list $orgName -L 100 --json name)
 foreach ($repo in $repos) {
     $repoName = $repo.name
     if (Test-Path $repoName) {
