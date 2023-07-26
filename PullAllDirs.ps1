@@ -4,10 +4,18 @@
 #   
 param(
     [Parameter(Mandatory=$true)]
-    $dirPath ="./"
+    $dirPath ="./",
+    [Parameter(Mandatory=$true)]
+    $orgName
 )
-   $repos = Get-ChildItem $dirPath -Directory
-   foreach ($repo in $repos) {
+   $localRepos = Get-ChildItem $dirPath -Directory
+   $ghRepos = ConvertFrom-Json (gh repo list $orgName -L 100 --json name)
+   foreach ($repo in $localRepos) {
+         if ($ghRepos.name -notcontains $repo.Name) {
+              Write-Host "$repo does not exist in $orgName"
+              #Remove-Item $repo.FullName -recurse -force
+              Continue
+         }
        Write-Host "Pulling $repo"
        Push-Location $repo
        git pull
