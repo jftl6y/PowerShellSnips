@@ -18,6 +18,7 @@ param(
          }
        Write-Host "Pulling $repo"
        Push-Location $repo
+       git checkout main
        git pull
        Pop-Location
    }
