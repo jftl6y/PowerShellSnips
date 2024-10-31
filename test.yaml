@@ -1,0 +1,16 @@
+steps:
+- task: AzureCLI@2
+  displayName: 'Azure CLI '
+  inputs:
+    azureSubscription: '<service principal'
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+     az login --service-principal --username $env:servicePrincipalId --tenant $env.tenantId --password $env:servicePrincipalKey
+     az acr login -n <acrshortname>
+     az acr import -n <acrshortname> --source mcr.microsoft.com/windows/servercore:ltsc2022 -t windows/servercore:ltsc2022
+     az acr build -r <acrshortname> -t <acrshortname>.azurecr.us/<imageName>:tag . --platform windows
+     az acr repository delete -n vaacceshdsvcpacr --image windows/servercore:ltsc2022 --yes
+    addSpnToEnvironment: true
+    workingDirectory: '<dockerfileLocation'
+  retryCountOnTaskFailure: 3
