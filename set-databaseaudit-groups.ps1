@@ -1,4 +1,4 @@
-Set-AzSqlDatabaseAudit -ResourceGroupName "ase-usgovvirginia-rg" -ServerName "joscot" -DatabaseName "joscot" -LogAnalyticsTargetState Enabled -WorkspaceResourceId "/subscriptions/0259b535-48b0-4b38-8a55-0e3dc4ea093f/resourceGroups/LogAnalytics-rg/providers/Microsoft.OperationalInsights/workspaces/joscot-la" `
+Set-AzSqlDatabaseAudit -ResourceGroupName "rg-name" -ServerName "serverName" -DatabaseName "joscot" -LogAnalyticsTargetState Enabled -WorkspaceResourceId "/subscriptions/{sub}/resourceGroups/LogAnalytics-rg/providers/Microsoft.OperationalInsights/workspaces/lawname" `
     -AuditActionGroup "APPLICATION_ROLE_CHANGE_PASSWORD_GROUP", `
     "BACKUP_RESTORE_GROUP", `
     "DATABASE_CHANGE_GROUP", `
