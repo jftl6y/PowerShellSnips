@@ -1,10 +1,10 @@
 
 # Define variables
-$tenantId = "5310815f-d7b8-4c10-9879-9eccf368d822"
-$clientId = "2bbad271-5009-4f68-9637-ab302af8b5c1" #"a865f57e-3a9b-46dd-9278-edd8a2b7b575"
-$clientSecret = "Jcf0fOUroW3Fa93~-1m_o17.~z0HzF8Vbo" #"9QYD.0~QvhPFpL.~4.hkCgTatcKI2yfII4"
-$scope = "a865f57e-3a9b-46dd-9278-edd8a2b7b575/.default"  # Or another resource
-$subscriptionKey = "6b26461c5fbf41b2ba9fa06dc09e7682"
+$tenantId = ""
+$clientId = "" 
+$clientSecret = ""
+$scope = "scope-guid/.default"  # Or another resource
+$subscriptionKey = ""
 
 # Token endpoint
 $tokenUrl = "https://login.microsoftonline.us/$tenantId/oauth2/v2.0/token"
